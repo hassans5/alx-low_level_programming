@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Check if CFILE variable is set
+if [ -z "$CFILE" ]; then
+  echo "CFILE variable is not set."
+  exit 1
+fi
+
+# Compile the C file and create the executable
+gcc "$CFILE" -o cisfun
+if [ $? -eq 0 ]; then
+  echo "Executable 'cisfun' created."
+else
+  echo "Compilation failed."
+fi
+
