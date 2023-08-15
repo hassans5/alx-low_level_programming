@@ -1,6 +1,11 @@
-#include <stdio.h>
+#include <unistd.h>
 
-int main(void) {
-    printf("_putchar\n");
-    return 0;
+/**
+ * _putchar - writes a character to stdout
+ * @c: The character to print
+ * Return: On success 1. On error, -1 is returned.
+ */
+int _putchar(char c)
+{
+return (write(1, &c, 1));
 }
