@@ -1,1 +1,58 @@
-#include "main.h"\n#include <stdio.h>\n\n/**\n * print_times_table - Prints the n times table\n * @n: The number to generate the times table for\n */\nvoid print_times_table(int n)\n{\n    if (n < 0 || n > 15)\n        return;\n\n    int i, j; // Declare variables here\n    int result;\n\n    for (i = 0; i <= n; i++)\n    {\n        for (j = 0; j <= n; j++)\n        {\n            result = i * j; // Initialize the result variable here\n\n            if (j != 0)\n                _putchar(',');\n\n            if (result < 10)\n            {\n                _putchar(' ');\n                _putchar(' ');\n                _putchar(' ');\n            }\n            else if (result >= 10 && result < 100)\n            {\n                _putchar(' ');\n                _putchar(' ');\n            }\n            else if (result >= 100)\n            {\n                _putchar(' ');\n            }\n\n            if (result < 10)\n            {\n                _putchar(result + '0');\n            }\n            else if (result >= 10 && result < 100)\n            {\n                _putchar((result / 10) + '0');\n                _putchar((result % 10) + '0');\n            }\n            else if (result >= 100)\n            {\n                _putchar((result / 100) + '0');\n                _putchar(((result / 10) % 10) + '0');\n                _putchar((result % 10) + '0');\n            }\n        }\n        _putchar('\n');\n    }\n}
+#include "main.h"
+#include <stdio.h>
+
+/**
+ * print_times_table - Prints the n times table
+ * @n: The number to generate the times table for
+ */
+void print_times_table(int n)
+{
+    if (n < 0 || n > 15)
+        return;
+
+    int i, j;
+
+    for (i = 0; i <= n; i++)
+    {
+        for (j = 0; j <= n; j++)
+        {
+            int result = i * j;
+
+            if (j != 0)
+                _putchar(',');
+
+            if (result < 10)
+            {
+                _putchar(' ');
+                _putchar(' ');
+                _putchar(' ');
+            }
+            else if (result >= 10 && result < 100)
+            {
+                _putchar(' ');
+                _putchar(' ');
+            }
+            else if (result >= 100)
+            {
+                _putchar(' ');
+            }
+
+            if (result < 10)
+            {
+                _putchar(result + '0');
+            }
+            else if (result >= 10 && result < 100)
+            {
+                _putchar((result / 10) + '0');
+                _putchar((result % 10) + '0');
+            }
+            else if (result >= 100)
+            {
+                _putchar((result / 100) + '0');
+                _putchar(((result / 10) % 10) + '0');
+                _putchar((result % 10) + '0');
+            }
+        }
+        _putchar('\n');
+    }
+}
