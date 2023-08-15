@@ -5,22 +5,30 @@
  */
 void times_table(void)
 {
-    int i, j, result;
+    int row, column, product;
 
-    for (i = 0; i <= 9; i++)
+    for (row = 0; row <= 9; row++)
     {
-        _putchar('0'); /* Print the first element */
-        for (j = 1; j <= 9; j++)
+        for (column = 0; column <= 9; column++)
         {
-            _putchar(',');
-            _putchar(' ');
-            result = i * j;
-            if (result < 10)
-                _putchar(' '); /* Add extra space for single-digit results */
+            product = row * column;
+            if (column != 0)
+            {
+                _putchar(',');
+                _putchar(' ');
+                if (product < 10)
+                    _putchar(' ');
+            }
+            if (product >= 10)
+            {
+                _putchar(product / 10 + '0');
+                _putchar(product % 10 + '0');
+            }
             else
-                _putchar('0' + result / 10); /* Print tens digit of result */
-            _putchar('0' + result % 10); /* Print ones digit of result */
+            {
+                _putchar(product + '0');
+            }
         }
-        _putchar('\n'); /* Move to the next row */
+        _putchar('\n');
     }
 }
