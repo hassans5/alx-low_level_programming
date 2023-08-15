@@ -1,11 +1,9 @@
 #include "main.h"
 
-void times_table(void);
-
 /**
- * main - check the code
+ * main - Entry point
  *
- * Return: Always 0.
+ * Return: Always 0
  */
 int main(void)
 {
