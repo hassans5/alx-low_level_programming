@@ -11,7 +11,7 @@ int main(void)
     int i;
 
     printf("%lu, %lu", a, b);
-    for (i = 2; i < 98; i++)
+    for (i = 2; i < 100; i++)
     {
         next_term = a + b;
         printf(", %lu", next_term);
@@ -21,4 +21,3 @@ int main(void)
     printf("\n");
 
     return 0;
-}
