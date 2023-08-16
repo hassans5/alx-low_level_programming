@@ -6,13 +6,13 @@ void add_big(unsigned int a[], unsigned int b[], unsigned int c[], int size) {
     
     for (i = 0; i < size; ++i) {
         unsigned int sum = a[i] + b[i] + carry;
-        c[i] = sum % 1000000000;
-        carry = sum / 1000000000;
+        c[i] = sum % 100000; // Store only last 5 digits
+        carry = sum / 100000;
     }
 }
 
 void print_fibonacci(int n) {
-    unsigned int a[200] = {1}, b[200] = {2}, c[200] = {0};
+    unsigned int a[400] = {1}, b[400] = {2}, c[400] = {0};
     int size = 1;
     int i, j;
     
@@ -30,7 +30,7 @@ void print_fibonacci(int n) {
             b[j] = c[j];
         }
         
-        printf(", %09d", c[size - 1]);
+        printf(", %05d", c[size - 1]);
     }
     
     printf("\n");
