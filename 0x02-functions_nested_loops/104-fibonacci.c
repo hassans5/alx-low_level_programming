@@ -2,11 +2,12 @@
 
 void fibonacci_sequence() {
     unsigned int a = 1, b = 2;
+    unsigned int temp;
     unsigned int count = 0;
 
     while (count < 98) {
         printf("%u, ", a);
-        unsigned int temp = b;
+        temp = b;
         b = a + b;
         a = temp;
         count++;
