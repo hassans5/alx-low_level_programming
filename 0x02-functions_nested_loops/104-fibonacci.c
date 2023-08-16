@@ -6,7 +6,7 @@ void add_big(unsigned int a[], unsigned int b[], unsigned int c[], int size) {
     
     for (i = 0; i < size; ++i) {
         unsigned int sum = a[i] + b[i] + carry;
-        c[i] = sum % 1000000000; // Store only last 9 digits
+        c[i] = sum % 1000000000;
         carry = sum / 1000000000;
     }
 }
