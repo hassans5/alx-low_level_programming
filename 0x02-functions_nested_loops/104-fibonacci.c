@@ -7,18 +7,16 @@
  */
 int main(void)
 {
-    unsigned long int a = 1, b = 2, next_term;
+    unsigned long long int a = 0, b = 1, next_term;
     int i;
 
-    printf("%lu, %lu", a, b);
-    for (i = 2; i < 98; i++)
+    for (i = 0; i < 100; i++)
     {
+        printf("%llu, ", a);
         next_term = a + b;
-        printf(", %lu", next_term);
         a = b;
         b = next_term;
     }
     printf("\n");
 
     return 0;
-}
