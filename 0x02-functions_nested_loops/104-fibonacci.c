@@ -27,7 +27,7 @@ void print_fibonacci(int n) {
             b[j] = c[j];
         }
         
-        printf(", %d", c[size - 1]);
+        printf(", %09d", c[size - 1]);
     }
     
     printf("\n");
