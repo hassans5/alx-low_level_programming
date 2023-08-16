@@ -6,19 +6,19 @@
  */
 int main(void)
 {
-    unsigned long int a = 0, b = 1, next_term;
+    unsigned long int a = 1, b = 2, c;
     int i;
 
-    for (i = 0; i < 98; i++)
-    {
-        printf("%lu", a);
-        if (i < 97)
-            printf(", ");
+    printf("%lu, %lu", a, b);
 
-        next_term = a + b;
+    for (i = 3; i <= 98; i++)
+    {
+        c = a + b;
+        printf(", %lu", c);
         a = b;
-        b = next_term;
+        b = c;
     }
+
     printf("\n");
 
     return 0;
