@@ -10,7 +10,7 @@ void print_fibonacci(int n) {
         int next = a + b;
         printf(", %d", next);
         
-        // Update values for the next iteration
+        /* Update values for the next iteration */
         a = b;
         b = next;
     }
