@@ -3,24 +3,21 @@
 /**
  * main - Entry point
  *
- * Return: Always 0
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
-unsigned long int a = 1, b = 2, c;
-int i;
+    unsigned long long int a = 0, b = 1, next_term;
+    int i;
 
-printf("%lu, %lu", a, b);
+    for (i = 0; i < 98; i++)
+    {
+        printf("%llu, ", a);
+        next_term = a + b;
+        a = b;
+        b = next_term;
+    }
+    printf("%llu\n", a);
 
-for (i = 3; i <= 98; i++)
-{
-c = a + b;
-printf(", %lu", c);
-a = b;
-b = c;
-}
-
-printf("\n");
-
-return (0);
+    return 0;
 }
