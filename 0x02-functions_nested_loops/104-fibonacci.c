@@ -2,26 +2,24 @@
 
 /**
  * main - Entry point
- *
- * Return: Always 0 (Success)
+ * Return: Always 0
  */
 int main(void)
 {
     unsigned long int a = 0, b = 1, next_term;
     int i;
 
-    printf("%lu, %lu, ", a, b);
-    for (i = 0; i < 96; i++)
+    for (i = 0; i < 98; i++)
     {
+        printf("%lu", a);
+        if (i < 97)
+            printf(", ");
+
         next_term = a + b;
-        printf("%lu", next_term);
         a = b;
         b = next_term;
-        if (i != 95)
-            printf(", ");
-        else
-            printf("\n");
     }
+    printf("\n");
 
     return 0;
 }
