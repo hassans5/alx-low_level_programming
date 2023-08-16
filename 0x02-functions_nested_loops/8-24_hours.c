@@ -16,6 +16,6 @@ void print_fibonacci(int count) {
 }
 
 int main() {
-    print_fibonacci(98);  /* Print the first 98 Fibonacci numbers */
+    print_fibonacci(98);
     return 0;
 }

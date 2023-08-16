@@ -2,10 +2,11 @@
 
 void print_fibonacci(int count) {
     int a = 1, b = 2, next;
+    int i;
 
     printf("%d, %d", a, b);
     
-    for (int i = 2; i < count; ++i) {
+    for (i = 2; i < count; ++i) {
         next = a + b;
         printf(", %d", next);
         a = b;
@@ -15,6 +16,6 @@ void print_fibonacci(int count) {
 }
 
 int main() {
-    print_fibonacci(98);  // Print the first 98 Fibonacci numbers
+    print_fibonacci(98);
     return 0;
 }
