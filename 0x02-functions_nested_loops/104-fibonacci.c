@@ -1,26 +1,20 @@
 #include <stdio.h>
 
-void fibonacci_sequence() {
-    unsigned int a = 1, b = 2;
-    unsigned int count = 0;
+void print_fibonacci(int count) {
+    int a = 1, b = 2, next;
 
-    while (count < 98) {
-        printf("%u", a);
-
-        if (count < 97) {
-            printf(", ");
-        }
-
-        unsigned int temp = b;
-        b = a + b;
-        a = temp;
-        count++;
+    printf("%d, %d", a, b);
+    
+    for (int i = 2; i < count; ++i) {
+        next = a + b;
+        printf(", %d", next);
+        a = b;
+        b = next;
     }
-
     printf("\n");
 }
 
 int main() {
-    fibonacci_sequence();
+    print_fibonacci(98);  // Print the first 98 Fibonacci numbers
     return 0;
 }
