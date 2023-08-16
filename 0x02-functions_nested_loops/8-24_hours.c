@@ -1,21 +1,22 @@
-#include <stdio.h>
+#include "main.h"
 
-void print_fibonacci(int count) {
-    int a = 1, b = 2, next;
-    int i;
+/**
+ * jack_bauer - prints every minute of the day of Jack Bauer
+ */
+void jack_bauer(void)
+{
+	int hour, minute;
 
-    printf("%d, %d", a, b);
-    
-    for (i = 2; i < count; ++i) {
-        next = a + b;
-        printf(", %d", next);
-        a = b;
-        b = next;
-    }
-    printf("\n");
-}
-
-int main() {
-    print_fibonacci(98);
-    return 0;
+	for (hour = 0; hour < 24; hour++)
+	{
+		for (minute = 0; minute < 60; minute++)
+		{
+			_putchar(hour / 10 + '0');
+			_putchar(hour % 10 + '0');
+			_putchar(':');
+			_putchar(minute / 10 + '0');
+			_putchar(minute % 10 + '0');
+			_putchar('\n');
+		}
+	}
 }
