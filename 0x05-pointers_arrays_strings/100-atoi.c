@@ -1,5 +1,5 @@
 #include "main.h"
-#include <limits.h>  // Include this header to access INT_MAX and INT_MIN
+#include <limits.h>  /* Include this header to access INT_MAX and INT_MIN */
 
 /**
  * _atoi - Converts a string to an integer.
@@ -28,7 +28,7 @@ int _atoi(char *s)
                 result = result * 10 + (s[i] - '0');
                 i++;
             }
-            break;  // Stop processing after the number
+            break;  /* Stop processing after the number */
         }
         
         i++;
