@@ -15,7 +15,7 @@ int main(void)
 	srand(time(NULL));
 	while (sum < 2772)
 	{
-		r = rand() % 128;
+		r = (rand() % 127) + 1; /* avoid generating null bytes */
 		if (sum + r > 2772)
 			break;
 		printf("%c", r);
