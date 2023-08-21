@@ -14,10 +14,6 @@ void puts2(char *str)
 	for (len = 0; str[len] != '\0'; len++)
 		;
 
-	/* Adjust the length if it is odd */
-	if (len % 2 == 1)
-		len--;
-
 	/* Print every other character */
 	for (i = 0; i < len; i += 2)
 	{
