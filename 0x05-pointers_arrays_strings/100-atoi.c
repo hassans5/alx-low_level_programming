@@ -37,5 +37,9 @@ int _atoi(char *s)
         i++;
     }
 
+    /* Check for signed integer overflow */
+    if (result == INT_MIN && sign == 1)
+        return INT_MAX;
+
     return result * sign;
 }
