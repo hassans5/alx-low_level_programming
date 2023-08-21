@@ -1,20 +1,15 @@
 #include "main.h"
 
 /**
- * _strlen - Returns the length of a string.
- * @s: The string to be measured.
- *
- * Return: The length of the string.
+ * _puts - Prints a string followed by a new line.
+ * @str: The string to be printed.
  */
-int _strlen(char *s)
+void _puts(char *str)
 {
-	int length = 0;
-
-	while (*s != '\0')
+	while (*str != '\0')
 	{
-		length++;
-		s++;
+		_putchar(*str);
+		str++;
 	}
-
-	return (length);
+	_putchar('\n');
 }
