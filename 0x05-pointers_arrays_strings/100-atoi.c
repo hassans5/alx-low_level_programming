@@ -1,4 +1,5 @@
 #include "main.h"
+#include <limits.h>  // Include this header to access INT_MAX and INT_MIN
 
 /**
  * _atoi - Converts a string to an integer.
