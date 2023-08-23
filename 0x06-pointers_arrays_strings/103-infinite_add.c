@@ -1,56 +1,43 @@
+#include "main.h"
 #include <stdio.h>
+#include <string.h>
 
 /**
- * infinite_add - adds two numbers
- * @n1: first number
- * @n2: second number
- * @r: buffer to store result
- * @size_r: size of buffer r
+ * infinite_add - Adds two numbers represented as strings
+ * @n1: First number as a string
+ * @n2: Second number as a string
+ * @r: Buffer to store the result
+ * @size_r: Size of the buffer
  *
- * Return: pointer to result or 0 if result cannot be stored in r
+ * Return: Pointer to the result (r) or 0 if result cannot fit in r
  */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int i, j, k, l, m, n;
-	int carry, digit1, digit2, sum;
+        int len1 = strlen(n1);
+        int len2 = strlen(n2);
+        int carry = 0;
+        int max_len = len1 > len2 ? len1 : len2;
+        int i, j, k;
 
-	for (i = 0; n1[i] != '\0'; i++)
-		;
-	for (j = 0; n2[j] != '\0'; j++)
-		;
-	if (i > size_r - 1 || j > size_r - 1)
-		return (0);
-	carry = 0;
-	for (k = size_r - 2; k >= 0; k--)
-	{
-		i--;
-		j--;
-		digit1 = (i >= 0) ? n1[i] - '0' : 0;
-		digit2 = (j >= 0) ? n2[j] - '0' : 0;
-		sum = digit1 + digit2 + carry;
-		if (sum > 9)
-		{
-			carry = 1;
-			sum -= 10;
-		}
-		else
-			carry = 0;
-		r[k] = sum + '0';
-	}
-	r[size_r - 1] = '\0';
-	if (carry)
-		return (0);
-	for (l = 0, m = 0; r[l] != '\0'; l++)
-	{
-		if (r[l] != '0')
-			m = 1;
-		if (m)
-			break;
-	}
-	if (!m)
-		l++;
-	for (n = 0; r[l] != '\0'; l++, n++)
-		r[n] = r[l];
-	r[n] = '\0';
-	return (r);
+        if (max_len + 1 > size_r)
+                return (0);
+
+        for (i = len1 - 1, j = len2 - 1, k = 0; i >= 0 || j >= 0 || carry; i--, j--, k++) {
+                int digit1 = i >= 0 ? n1[i] - '0' : 0;
+                int digit2 = j >= 0 ? n2[j] - '0' : 0;
+                int sum = digit1 + digit2 + carry;
+
+                carry = sum / 10;
+                r[k] = (sum % 10) + '0';
+        }
+
+        r[k] = '\0';
+
+        for (i = 0, j = k - 1; i < j; i++, j--) {
+                char temp = r[i];
+                r[i] = r[j];
+                r[j] = temp;
+        }
+
+        return (r);
 }
