@@ -2,28 +2,38 @@
 #include "main.h"
 
 /**
- * is_separator - Check if a character is a word separator
- * @c: The character to check
- * Return: true if c is a separator, false otherwise
- */
-bool is_separator(char c)
+ * isLower - determines whether a character is lowercase
+ * @c: character
+ * Return: 1 if c is lowercase, 0 otherwise
+*/
+int isLower(char c)
 {
-	char separators[] = " \t\n,;.!?\"(){}";
-	int i;
-
-	for (i = 0; separators[i] != '\0'; i++)
-	{
-		if (c == separators[i])
-			return (true);
-	}
-	return (false);
+	return (c >= 97 && c <= 122);
 }
 
 /**
- * cap_string - Capitalize all words in a string
- * @s: The input string
- * Return: The modified string
- */
+ * isDelimiter - determines whether a character is a delimiter
+ * @c: character
+ * Return: 1 if c is a delimiter, 0 otherwise
+*/
+int isDelimiter(char c)
+{
+	int i;
+	char delimiter[] = " \t\n,.;!?\"(){}";
+
+	for (i = 0; i < 12; i++)
+	{
+		if (c == delimiter[i])
+			return (1);
+	}
+	return (0);
+}
+
+/**
+ * cap_string - capitalizes all words of a string
+ * @s: input string
+ * Return: string with capitalized words
+*/
 char *cap_string(char *s)
 {
 	bool new_word = true;
@@ -36,7 +46,7 @@ char *cap_string(char *s)
 			s[i] -= ('a' - 'A');
 			new_word = false;
 		}
-		else if (is_separator(s[i]))
+		else if (isDelimiter(s[i]))
 		{
 			new_word = true;
 		}
