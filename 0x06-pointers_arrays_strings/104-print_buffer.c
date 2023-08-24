@@ -13,12 +13,10 @@ int isPrintableASCII(int n)
 }
 
 /**
- * printHexes - Prints hex values for a string within a specified range
- * @b: Pointer to the string
+ * printHexes - Prints hex values for a string b in formatte form
+ * @b: string to print
  * @start: Starting position
  * @end: Ending position
- * Description: This function prints the hexadecimal values of a string
- *              within the specified range.
 */
 
 void printHexes(char *b, int start, int end)
