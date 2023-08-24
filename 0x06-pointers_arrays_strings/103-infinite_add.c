@@ -1,59 +1,99 @@
 #include "main.h"
 
 /**
- * infinite_add - Adds two numbers stored as strings.
- * @n1: First number as a string.
- * @n2: Second number as a string.
- * @r: Buffer to store the result of addition.
- * @size_r: Size of the result buffer.
- * Return: Pointer to the result buffer.
+ * get_digit - get the digit at a specific position in a string
+ * @str: string of digits
+ * @pos: position to get digit from (0 is units digit)
+ *
+ * Return: digit at position pos, or 0 if pos is out of range
+ */
+int get_digit(char *str, int pos)
+{
+	int len = 0;
+
+	while (str[len] != '\0')
+		len++;
+
+	if (pos >= len)
+		return (0);
+
+	return (str[len - pos - 1] - '0');
+}
+
+/**
+ * add_digits - add two digits with carry
+ * @d1: first digit
+ * @d2: second digit
+ * @carry: carry from previous addition
+ *
+ * Return: sum of d1, d2, and carry (mod 10)
+ */
+int add_digits(int d1, int d2, int carry)
+{
+	return ((d1 + d2 + carry) % 10);
+}
+
+/**
+ * get_carry - get carry from adding two digits
+ * @d1: first digit
+ * @d2: second digit
+ * @carry: carry from previous addition
+ *
+ * Return: carry from adding d1, d2, and carry
+ */
+int get_carry(int d1, int d2, int carry)
+{
+	return ((d1 + d2 + carry) / 10);
+}
+
+/**
+ * infinite_add - adds two numbers
+ * @n1: first number
+ * @n2: second number
+ * @r: result buffer
+ * @size_r: result buffer size
+ *
+ * Return: pointer to result buffer, or 0 if result does not fit in buffer
  */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int i = 0, j = 0, k, carry = 0, f, s, d = 0;
+	int i = 0, j = 0, k, l = 0, f, s, d = 0;
 
 	while (n1[i] != '\0')
 		i++;
+
 	while (n2[j] != '\0')
 		j++;
 
 	if (i > j)
-		k = i;
+		l = i;
 	else
-		k = j;
+		l = j;
 
-	i--;
-	j--;
-
-	for (; k >= 0; k--)
+	for (k = 0; k <= l; k++)
 	{
-		if (i >= 0)
-			f = n1[i] - '0';
-		else
-			f = 0;
-
-		if (j >= 0)
-			s = n2[j] - '0';
-		else
-			s = 0;
-
-		r[k] = (f + s + carry) % 10 + '0';
-		carry = (f + s + carry) / 10;
-
-		i--;
-		j--;
+		f = get_digit(n1, k);
+		s = get_digit(n2, k);
+		r[l - k] = add_digits(f, s, d) + '0';
+		d = get_carry(f, s, d);
 	}
 
-	if (carry == 1)
-		r[0] = carry + '0';
+	if (d == 1)
+	{
+		r[l + 1] = '\0';
+		while (l-- >= 0)
+			r[l + 1] = r[l];
+		r[0] = d + '0';
+	}
+	else
+	{
+		r[l + 1] = '\0';
+		while (l-- > 0)
+			r[l + 1] = r[l];
+	}
 
-	if (k < 0 && size_r <= (k * -1))
-		return NULL;
+	if (l + 2 > size_r)
+		return (0);
 
-	for (i = size_r - 1; i >= 0; i--)
-		r[i + 1] = r[i];
-
-	r[0] = carry + '0';
-
-	return r;
+	return (r);
 }
