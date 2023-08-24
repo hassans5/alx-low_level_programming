@@ -38,13 +38,11 @@ void printHexes(char *b, int start, int end)
 }
 
 /**
- * printASCII - Prints the ASCII values of a string within a specified range
- * @b: Pointer to the string
- * @start: Starting position
+ * printASCII - Prints ascii values for string h,
+ * formatted to replace nonprintable
+ * @b: string to print
+ * @start: starting position
  * @end: Ending position
- * Description: This function prints the ASCII values of a string within
- *              the specified range. Non-printable characters are replaced
- *              with '.'
 */
 
 void printASCII(char *b, int start, int end)
@@ -62,12 +60,9 @@ void printASCII(char *b, int start, int end)
 }
 
 /**
- * print_buffer - Prints a buffer with specific formatting
- * @b: Pointer to the buffer
- * @size: Size of the buffer
- * Description: This function prints the content of a buffer in a specific format.
- *              The output displays the hexadecimal content of the buffer along
- *              with ASCII characters.
+ * print_buffer - Prints a buffer
+ * @b: string
+ * @size: Size of buffer
 */
 
 void print_buffer(char *b, int size)
