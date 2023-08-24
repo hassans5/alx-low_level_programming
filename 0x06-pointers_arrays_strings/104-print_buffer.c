@@ -25,6 +25,7 @@ int isPrintableASCII(int n)
 void printHexes(char *b, int start, int end)
 {
     int i = 0;
+
     while (i < 10)
     {
         if (i < end)
@@ -52,13 +53,12 @@ void printHexes(char *b, int start, int end)
 void printASCII(char *b, int start, int end)
 {
     int ch, i = 0;
+
     while (i < end)
     {
         ch = *(b + i + start);
-
         if (!isPrintableASCII(ch))
-            ch = 46; // ASCII value for '.'
-
+            ch = 46;
         printf("%c", ch);
         i++;
     }
@@ -82,7 +82,6 @@ void print_buffer(char *b, int size)
         for (start = 0; start < size; start += 10)
         {
             end = (size - start < 10) ? (size - start) : 10;
-
             printf("%08x: ", start);
             printHexes(b, start, end);
             printASCII(b, start, end);
@@ -91,7 +90,5 @@ void print_buffer(char *b, int size)
         }
     }
     else
-    {
         printf("\n");
-    }
 }
