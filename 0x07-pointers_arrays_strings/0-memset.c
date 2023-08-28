@@ -1,50 +1,21 @@
-#include "holberton.h"
+#include "main.h"
 
 /**
- * simple_print_buffer - Prints a buffer in a pretty way
- * @buffer: The buffer to be printed
- * @size: The size of the buffer
+ * _memset - Fills memory with a constant byte.
+ * @s: A pointer to the memory area to be filled.
+ * @b: The byte to fill the memory with.
+ * @n: The number of bytes to be filled.
  *
- * Return: Nothing
+ * Return: A pointer to the filled memory area @s.
  */
-void simple_print_buffer(char *buffer, unsigned int size)
+char *_memset(char *s, char b, unsigned int n)
 {
 	unsigned int i;
 
-	i = 0;
-	while (i < size)
+	for (i = 0; i < n; i++)
 	{
-		if (i % 10)
-		{
-			printf(" ");
-		}
-		if (!(i % 10) && i)
-		{
-			printf("\n");
-		}
-		printf("0x%02x", buffer[i]);
-		i++;
+		s[i] = b;
 	}
-	printf("\n");
-}
 
-/**
- * main - Entry point
- *
- * Return: Always 0
- */
-int main(void)
-{
-	char buffer[98] = {0};
-	char buffer2[98] = {0};
-	int i;
-
-	for (i = 0; i < 98; i++)
-	{
-		buffer[i] = i;
-	}
-	simple_print_buffer(buffer, 98);
-	_memcpy(buffer2, buffer, 98);
-	simple_print_buffer(buffer2, 98);
-	return (0);
+	return (s);
 }
