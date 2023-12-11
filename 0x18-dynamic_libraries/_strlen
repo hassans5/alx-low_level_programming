@@ -1,0 +1,8 @@
+#include "main.h"
+
+int _strlen(char *s)
+{
+    (void)s;
+    return (10); // This should be the length of the winning numbers string
+}
+
